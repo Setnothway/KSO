@@ -1,0 +1,53 @@
+{
+  "name": "sco-kiosk",
+  "version": "1.0.0",
+  "description": "Self-Checkout Kiosk Terminal Application",
+  "main": "src/main/main.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:renderer\" \"wait-on http://localhost:5173 && npm run dev:electron\"",
+    "dev:renderer": "vite",
+    "dev:electron": "cross-env NODE_ENV=development electron .",
+    "build": "tsc && vite build",
+    "build:electron": "electron-builder",
+    "preview": "vite preview",
+    "rebuild": "electron-rebuild -f -w better-sqlite3"
+  },
+  "keywords": ["kiosk", "self-checkout", "retail", "electron"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@xstate/react": "^6.1.0",
+    "better-sqlite3": "^12.11.1",
+    "framer-motion": "^13.1.1",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "xstate": "^5.32.6"
+  },
+  "devDependencies": {
+    "@electron/rebuild": "^3.7.2",
+    "@vitejs/plugin-react": "^6.1.1",
+    "autoprefixer": "^10.5.4",
+    "concurrently": "^9.2.4",
+    "cross-env": "^10.1.0",
+    "electron": "^41.7.1",
+    "postcss": "^8.5.26",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.8.3",
+    "vite": "^6.2.0",
+    "wait-on": "^9.1.0"
+  },
+  "build": {
+    "appId": "com.retail.sco-kiosk",
+    "productName": "SCO Kiosk Terminal",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "dist/**/*",
+      "src/main/**/*"
+    ],
+    "win": {
+      "target": "nsis"
+    }
+  }
+}

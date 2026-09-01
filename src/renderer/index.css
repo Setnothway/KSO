@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+/* ============================================
+   CSS-переменные для динамического брендирования
+   Инжектятся через useTheme хук из theme.json
+   ============================================ */
+
+:root {
+  /* Brand Colors (по умолчанию, переопределяются из theme.json) */
+  --brand-primary: #007AFF;
+  --brand-secondary: #FFFFFF;
+  --brand-accent: #FF9500;
+  --brand-background: #F2F2F7;
+  --brand-surface: #FFFFFF;
+  --brand-text: #000000;
+  --brand-text-secondary: #8E8E93;
+  --brand-success: #34C759;
+  --brand-error: #FF3B30;
+  --brand-warning: #FFCC00;
+  
+  /* Fonts */
+  --font-primary: system-ui, -apple-system, sans-serif;
+  --font-heading: system-ui, -apple-system, sans-serif;
+}
+
+/* ============================================
+   Базовые стили для Kiosk-режима
+   ============================================ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* Блокируем скролл страницы */
+  font-family: var(--font-primary);
+  background-color: var(--brand-background);
+  color: var(--brand-text);
+  -webkit-user-select: none; /* Отключаем выделение текста */
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* ============================================
+   Touch-friendly стили
+   ============================================ */
+
+button, a, [role="button"] {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Увеличенные зоны клика для тач-интерфейса */
+.touch-target {
+  min-height: 48px;
+  min-width: 48px;
+  padding: 12px 16px;
+}
+
+/* ============================================
+   Анимации переходов между состояниями
+   ============================================ */
+
+.page-transition-enter {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* ============================================
+   Утилиты
+   ============================================ */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

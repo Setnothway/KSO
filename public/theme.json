@@ -1,0 +1,29 @@
+{
+  "brandName": "Пятёрочка",
+  "logoUrl": "/assets/logo.png",
+  "colors": {
+    "primary": "#E30611",
+    "secondary": "#FFFFFF",
+    "accent": "#FFC107",
+    "background": "#F5F5F5",
+    "surface": "#FFFFFF",
+    "text": "#212121",
+    "textSecondary": "#757575",
+    "success": "#4CAF50",
+    "error": "#F44336",
+    "warning": "#FF9800"
+  },
+  "fonts": {
+    "primary": "Roboto, sans-serif",
+    "heading": "Montserrat, sans-serif"
+  },
+  "messages": {
+    "welcome": "Добро пожаловать!",
+    "scanBarcode": "Отсканируйте штрихкод товара",
+    "insertCard": "Приложите карту лояльности",
+    "paymentSuccess": "Оплата прошла успешно!",
+    "paymentFailed": "Ошибка оплаты. Попробуйте другой способ.",
+    "callOperator": "Вызван оператор. Ожидайте."
+  },
+  "language": "ru"
+}
